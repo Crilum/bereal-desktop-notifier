@@ -8,7 +8,11 @@ import { createWriteStream, writeFile, existsSync } from 'fs';
 const __dirname = path.resolve(path.dirname('')); 
 const key = ""; // get an API key from https://bereal.devin.fun/
 let debug = false;
-const BeReal_region = "us-central"
+const BeReal_region = "us-central" // Set by default to US. Valid options are:
+// us-central
+// europe-west
+// asia-west
+// asia-east
 
 process.argv.forEach(function (val, index, array) {
     if (array.includes("--debug")) {
