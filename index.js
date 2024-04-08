@@ -19,13 +19,16 @@ process.argv.forEach(function (val, index, array) {
         debug = true
     };
 });
+if (key == "") {
+    throw "You must have an API key!"
+}
 if (debug == true) {
     log("Running in debug mode...\n");
 };
 
 function log(message) {
-    if (! existsSync("log.txt")) writeFile("log.txt", "", (err) => {if (err) console.error(err)})
-    const stream = createWriteStream("log.txt", {flags:'a'});
+    if (! existsSync(path.join(__dirname, 'log.txt'),)) writeFile(path.join(__dirname, 'log.txt'), "", (err) => {if (err) console.error(err)})
+    const stream = createWriteStream(path.join(__dirname, 'log.txt'), {flags:'a'});
     stream.write(`${message.replace("\u001b[2K\u001b[0E", "")}
 `)
     process.stdout.write(message)
