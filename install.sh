@@ -12,6 +12,8 @@ elif ! command -v npm &>/dev/null; then
     echo "I can't find a npm binary!! Please install npm.
 Exiting..."
     exit 1
+elif [[ ! $(pwd) ~= "bereal-desktop-notifier" ]]; then
+    echo "Please run this script from the \`bereal-desktop-notifier\` directory."
 elif [[ $(cat ./index.js | grep "const key = ") == 'const key = ""; // get an API key from https://bereal.devin.fun/' ]]; then
     echo "Please enter an API key in the \`index.js\` file. This program will not work without it!!
 You can get an API key at https://bereal.devin.fun/"
