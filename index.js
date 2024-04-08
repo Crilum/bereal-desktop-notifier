@@ -8,6 +8,7 @@ import { createWriteStream, writeFile, existsSync } from 'fs';
 const __dirname = path.resolve(path.dirname('')); 
 const key = ""; // get an API key from https://bereal.devin.fun/
 let debug = false;
+const waiting_time = 3000 // Time in between each API call in milliseconds.
 const BeReal_region = "us-central" // Set by default to US. Valid options are:
 // us-central
 // europe-west
@@ -106,5 +107,5 @@ async function main() {
 
 while (true) {
     main()
-    await setTimeout(1000)
+    await setTimeout(waiting_time)
 }
